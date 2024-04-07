@@ -11,8 +11,8 @@ const express = require("express");
 const app = express();
 
 // parsing of json data
-const bodyParser=require('body-parser');
- // specially parse data JSON data and add it to the request.body Object
+const bodyParser = require("body-parser");
+// specially parse data JSON data and add it to the request.body Object
 app.use(bodyParser.json());
 
 // activation of server on 3000 port
@@ -29,4 +29,11 @@ app.post("/api/cars", (req, resp) => {
   console.log(name);
   console.log(brand);
   resp.send({ msg: `car added successfully` });
+});
+
+const mongoose = require("mongoose");
+// connect with database
+mongoose.connect("mongodb://localhost:27017/CarDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
