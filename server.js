@@ -10,6 +10,11 @@
 const express = require("express");
 const app = express();
 
+// parsing of json data
+const bodyParser=require('body-parser');
+ // specially parse data JSON data and add it to the request.body Object
+app.use(bodyParser.json());
+
 // activation of server on 3000 port
 app.listen(3000, () => {
   console.log("server started at port 3000");
